@@ -20,17 +20,17 @@
  - has_many :orders
 
  ## items テーブル
-| Column             | Type    |  Options                       |
-|------------------  | --------| -------------------------------|                    
-| name               | string  | null: false                    |
-| info               | text    | null: false                    |
-| price              | integer | null: false                    |
-| prefecture_id      | integer | null: false ,foreign_key: true |
-| delivery_id        | integer | null: false ,foreign_key: true |
-| shipping_status_id | integer | null: false ,foreign_key: true |
-| status_id          | integer | null: false ,foreign_key: true |
-| category_id        | integer | null: false ,foreign_key: true |
-| user_id            | integer | null: false ,foreign_key: true |
+| Column             | Type    |  Options     |
+|------------------  | --------| -------------|                    
+| name               | string  | null: false  |
+| info               | text    | null: false  |
+| price              | integer | null: false  |
+| prefecture_id      | integer | null: false  |
+| delivery_id        | integer | null: false  |
+| shipping_status_id | integer | null: false  |
+| status_id          | integer | null: false  |
+| category_id        | integer | null: false  |
+| user_id            | integer | null: false  |
 
 Association
 - belongs_to :user
@@ -39,7 +39,7 @@ Association
 ## orders テーブル
 | Column        | Type    | Options                        |
 |---------------| ------  | -------------------------------|
-| items_id      | integer | null: false, foreign_key: true |
+| item_id       | integer | null: false, foreign_key: true |
 | user_id       | integer | null: false, foreign_key: true |
 
 Association
@@ -58,7 +58,8 @@ Association
 | building         | string     | null: false                        |
 | prefecture_id    | integer    | null: false                        |
 | phone_nember     | string     | null: false                        |
-| user_id          | integer    | null: false, foreign_key: true     |
+| items_id      | integer | null: false, foreign_key: true           |
+
 Association
 
 - belongs_to :order

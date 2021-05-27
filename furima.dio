@@ -29,7 +29,7 @@
                     <mxGeometry y="26" width="170" height="84" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="addresses" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="120" y="320" width="160" height="130" as="geometry"/>
+                    <mxGeometry x="130" y="320" width="160" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="postal code&#10;prefecture_id&#10;address&#10;building&#10;phone_number&#10;city&#10;user_id&#10;&#10;&#10;&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="15">
                     <mxGeometry y="26" width="160" height="104" as="geometry"/>
