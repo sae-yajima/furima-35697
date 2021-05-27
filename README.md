@@ -20,33 +20,35 @@
  - has_many :orders
 
  ## items テーブル
-| Column             | Type    |  Options     |
-|------------------  | --------| -------------|                    
-| name               | string  | null: false  |
-| info               | text    | null: false  |
-| price              | integer | null: false  |
-| prefecture_id      | integer | null: false  |
-| delivery_id        | integer | null: false  |
-| shipping_status_id | integer | null: false  |
-| status_id          | integer | null: false  |
-| category_id        | integer | null: false  |
-| user_id            | integer | null: false  |
+| Column             | Type      |  Options     |
+|------------------  | --------  | -------------|                    
+| name               | string    | null: false  |
+| info               | text      | null: false  |
+| price              | integer   | null: false  |
+| prefecture_id      | integer   | null: false  |
+| delivery_id        | integer   | null: false  |
+| shipping_status_id | integer   | null: false  |
+| status_id          | integer   | null: false  |
+| category_id        | integer   | null: false  |
+| user               | reference | null: false  |
 
 Association
 - belongs_to :user
 - has_one :order
 
 ## orders テーブル
-| Column        | Type    | Options                        |
-|---------------| ------  | -------------------------------|
-| item_id       | integer | null: false, foreign_key: true |
-| user_id       | integer | null: false, foreign_key: true |
+| Column        | Type      | Options                        |
+|---------------| ----------| -------------------------------|
+| item          | reference | null: false, foreign_key: true |
+| user          | reference | null: false, foreign_key: true |
+
+
 
 Association
 
 - belongs_to :item
 - belongs_to :user
-- has_one :asddress
+- has_one :address
 
 ## addresses テーブル
 
@@ -58,7 +60,7 @@ Association
 | building         | string     | null: false                        |
 | prefecture_id    | integer    | null: false                        |
 | phone_nember     | string     | null: false                        |
-| items_id      | integer | null: false, foreign_key: true           |
+| order            | reference  | null: false, foreign_key: true     |
 
 Association
 
