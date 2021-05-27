@@ -3,16 +3,16 @@
 # テーブル設計  
 
 # usersテーブル
-| Column           | Type   | Options     |
-|----------------- | ------ | ----------- |
-| nicname          | string | null: false |
-| email            | string | null: false |
-| password         | string | null: false |
-| family_name      | string | null: false |
-| first_name       | string | null: false |
-| family_name_kana | string | null: false |
-| fist_name kana   | string | null: false |
-| birth_day        | date   | null: false |
+| Column             | Type   | Options      |
+|-----------------   | ------ | -----------  |
+| nicname            | string | null: false  |
+| email              | string | unique: true |
+| encrypted_password | string | null: false  |
+| family_name        | string | null: false  |
+| first_name         | string | null: false  |
+| family_name_kana   | string | null: false  |
+| fist_name kana     | string | null: false  |
+| birth_day          | date   | null: false  |
 
  Association
 
@@ -20,21 +20,21 @@
  - has_many :orders
 
  ## items テーブル
-| Column             | Type       |  Options                       |
-|------------------  | ---------- | ------------------------------ |
-| name               | string     | null: false                    |
-| info               | text       | null: false                    |
-| price              | integer    | null: false                    |
-| prefecture_id      | references | null: false, foreign_key: true |
-| delivery_id        | references | null: false, foreign_key: true |
-| shipping_status_id | references | null: false, foreign_key: true |
-| status_id          | references | null: false, foreign_key: true |
-| category_id        | references | null: false, foreign_key: true |
-| user_id            | references | null: false, foreign_key: true |
+| Column             | Type    |  Options    |
+|------------------  | --------| ------------|
+| name               | string  | null: false |
+| info               | text    | null: false |
+| price              | integer | null: false |
+| prefecture_id      | integer | null: false |
+| delivery_id        | integer | null: false |
+| shipping_status_id | integer | null: false |
+| status_id          | integer | null: false |
+| category_id        | integer | null: false |
+| user_id            | integer | null: false |
 
 Association
-- belongs_to :users
-- has_one :orders
+- belongs_to :user
+- has_one :order
 
 ## orders テーブル
 | Column        | Type   | Options                            |
@@ -44,9 +44,9 @@ Association
 
 Association
 
-- has_one :items
-- belongs_to :users
-- belongs_to :asddresses
+- has_one :item
+- belongs_to :user
+- has_one :asddress
 
 ## addresses テーブル
 
@@ -61,4 +61,4 @@ Association
 
 Association
 
-- belongs_to :orders
+- belongs_to :order
