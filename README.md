@@ -5,7 +5,7 @@
 # usersテーブル
 | Column             | Type   | Options                   |
 |-----------------   | ------ | ------------------------- |
-| nicname            | string | null: false               |
+| nickname           | string | null: false               |
 | email              | string | unique: true,null: false  |
 | encrypted_password | string | null: false               |
 | family_name        | string | null: false               |
@@ -20,17 +20,17 @@
  - has_many :orders
 
  ## items テーブル
-| Column             | Type      |  Options     |
-|------------------  | --------  | -------------|                    
-| name               | string    | null: false  |
-| info               | text      | null: false  |
-| price              | integer   | null: false  |
-| prefecture_id      | integer   | null: false  |
-| delivery_id        | integer   | null: false  |
-| shipping_status_id | integer   | null: false  |
-| status_id          | integer   | null: false  |
-| category_id        | integer   | null: false  |
-| user               | reference | null: false  |
+| Column             | Type      |  Options                       |
+|------------------  | --------  | -------------------------------|                    
+| name               | string    | null: false                    |
+| info               | text      | null: false                    |
+| price              | integer   | null: false                    |
+| prefecture_id      | integer   | null: false                    |
+| delivery_id        | integer   | null: false                    |
+| shipping_status_id | integer   | null: false                    |
+| status_id          | integer   | null: false                    |
+| category_id        | integer   | null: false                    |
+| user               | reference | null: false, foreign_key: true |
 
 Association
 - belongs_to :user
