@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-    it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
+    it '全ての値が正しければ登録できる' do
         expect(@user).to be_valid
     end
   end
@@ -46,6 +46,12 @@ RSpec.describe User, type: :model do
     it 'password:全角英数混合(全角英語のみ)' do
         @user.password = 'ＡＡＡＡＡＡ '
         @user.password_confirmation = 'ＡＡＡＡＡＡ '
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
+    end
+    it 'password:全角英数混合(全角英語のみ)' do
+        @user.password = 'ａａａ１２３'
+        @user.password_confirmation = 'ａａａ１２３'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
     end
