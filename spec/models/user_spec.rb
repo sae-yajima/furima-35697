@@ -44,8 +44,8 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
     end
     it 'password:全角英数混合(全角英語のみ)' do
-        @user.password = 'AAAAAA'
-        @user.password_confirmation = 'AAAAAA'
+        @user.password = 'ＡＡＡＡＡＡ '
+        @user.password_confirmation = 'ＡＡＡＡＡＡ '
         @user.valid?
         expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
     end
@@ -58,8 +58,8 @@ RSpec.describe User, type: :model do
         expect(another_user.errors.full_messages).to include('Email has already been taken')
     end
     it 'passwordが5文字以下では登録できない' do
-        @user.password = '00000'
-        @user.password_confirmation = '00000'
+        @user.password = 'a123'
+        @user.password_confirmation = 'a123'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
     end
