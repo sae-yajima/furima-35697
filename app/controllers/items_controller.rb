@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     before_action :authenticate_user!,expect:[:index,:show]
     before_action :set_item, only: [:edit, :show]
-    before_action :move_to_index, only: [:edit,:update]
+    before_action :move_to_index, only: [:edit,:updat]
     
     def  index
         @items = Item.all.order(created_at:"desc")
@@ -19,8 +19,9 @@ class ItemsController < ApplicationController
         @item = Item.new(item_params)
         if @item.save
            return redirect_to root_path
+        else
+        render :new
         end
-        render:new
     end
 
 
@@ -38,10 +39,10 @@ class ItemsController < ApplicationController
 
       def update
         @item = Item.find(params[:id])
-        @item.update(item_params)
-        if @item.save
+        if  @item.update(item_params)
             redirect_to item_path(params[:id])
-       
+        else
+            render :edit
         end
       end
 
