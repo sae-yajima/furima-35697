@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     has_one_attached :image
     belongs_to :user
 
-    with_options presence :true do
+    with_options presence: true do
     validates  :image,:item_name
     validates  :item_info,:category_id
     validates  :sales_status_id,:fee_status_id
