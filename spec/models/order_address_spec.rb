@@ -14,6 +14,7 @@ RSpec.describe Address, type: :model do
         expect(@address).to be_valid
        end
        it 'buildingは空でも購入できる'do
+        @address.building = ''
         expect(@address).to be_valid
        end
       
@@ -65,6 +66,11 @@ RSpec.describe Address, type: :model do
       end
       it 'phone_numberが全角数字だと購入できない(全角英語のみ)' do
         @address.phone_number = ' ０９０１２３４５６７８ '
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Phone number is invalid") 
+      end
+      it 'phone_numberが英数混合だと購入できない' do
+        @address.phone_number = ' a0901234567'
         @address.valid?
         expect(@address.errors.full_messages).to include("Phone number is invalid") 
       end
