@@ -3,11 +3,11 @@ FactoryBot.define do
     image                    {Faker::Lorem.sentence}
     item_name                {"test"}
     item_info                {"aaa"}
-    category_id              {1}
-    sales_status_id          {1}
-    fee_status_id            {1}
-    prefecture_id            {1}
-    scheduled_delivery_id    {1}
+    category_id              {2}
+    sales_status_id          {2}
+    fee_status_id            {2}
+    prefecture_id            {2}
+    scheduled_delivery_id    {2}
     item_price               {1500}
     association :user     
     

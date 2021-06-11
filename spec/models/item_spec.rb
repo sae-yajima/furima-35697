@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
  before do
-  # user = FactoryBot.create(:user)
+  
   @item = FactoryBot.build(:item)
  end
 
@@ -33,31 +33,31 @@ RSpec.describe Item, type: :model do
   end
 
   it 'categoryが未選択だと出品できない'do
-   @item.category_id = 0
+   @item.category_id = 1
    @item.valid?
    expect(@item.errors.full_messages).to include("Category must be greater than or equal to 1")
   end
 
   it 'sales-statusが未選択だと出品できない'do
-   @item.sales_status_id = 0
+   @item.sales_status_id = 1
    @item.valid?
    expect(@item.errors.full_messages).to include("Sales status must be greater than or equal to 1")
   end
 
   it 'fee-statusが未選択だと出品できない'do
-   @item.fee_status_id = 0
+   @item.fee_status_id = 1
    @item.valid?
    expect(@item.errors.full_messages).to include("Fee status must be greater than or equal to 1")
   end
 
   it 'prefectureが未選択だと出品できない'do
-   @item.prefecture_id = 0
+   @item.prefecture_id = 1
    @item.valid?
    expect(@item.errors.full_messages).to include("Prefecture must be greater than or equal to 1")
   end
 
   it 'scheduled-deliveryが未選択だと出品できない'do
-   @item.scheduled_delivery_id = 0
+   @item.scheduled_delivery_id = 1
    @item.valid?
    expect(@item.errors.full_messages).to include("Scheduled delivery must be greater than or equal to 1")
   end
