@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates  :prefecture_id,:scheduled_delivery_id,:item_price
     end
 
-    validates :category_id,:sales_status_id,:fee_status_id,:prefecture_id,:scheduled_delivery_id, presence: true, numericality: {greater_than_or_equal_to: 1}
+    validates :category_id,:sales_status_id,:fee_status_id,:prefecture_id,:scheduled_delivery_id, presence: true, numericality: {greater_than_or_equal_to: 2}
     validates :item_price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
 end
